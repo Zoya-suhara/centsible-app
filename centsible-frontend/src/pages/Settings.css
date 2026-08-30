@@ -1,0 +1,283 @@
+/* ===== SETTINGS PAGE ===== */
+
+.settings-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-lg);
+  min-height: 100vh;
+}
+
+/* ----- Header ----- */
+.settings-header {
+  margin-bottom: var(--space-xl);
+}
+
+.settings-header h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  font-weight: 700;
+}
+
+.settings-header p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* ----- Messages (success/error) ----- */
+.settings-message {
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  animation: slideDown 0.3s ease;
+  font-weight: 500;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-message.success {
+  background: rgba(42, 157, 143, 0.15);
+  color: var(--success);
+  border-left: 4px solid var(--success);
+  backdrop-filter: blur(8px);
+}
+
+.settings-message.error {
+  background: rgba(231, 111, 81, 0.15);
+  color: var(--danger);
+  border-left: 4px solid var(--danger);
+  backdrop-filter: blur(8px);
+}
+
+/* ----- Main Content Grid ----- */
+.settings-content {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: var(--space-xl);
+}
+
+/* ----- Settings Form (Left Column) ----- */
+.settings-form {
+  background: var(--surface-solid);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+}
+
+.settings-section {
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.settings-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.settings-section h2 {
+  font-size: 1.3rem;
+  color: var(--primary);
+  margin-bottom: var(--space-lg);
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.15);
+  background: var(--surface-hover);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input.disabled-input {
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form-group small {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+/* ----- Form Actions ----- */
+.settings-actions {
+  margin-top: var(--space-xl);
+  text-align: right;
+}
+
+.save-btn {
+  padding: 12px 30px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.save-btn:hover:not(:disabled) {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.save-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ----- Sidebar (Right Column) ----- */
+.settings-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.settings-sidebar .settings-section {
+  background: var(--surface-solid);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: 0;
+  box-shadow: var(--shadow-md);
+}
+
+.logout-btn,
+.reset-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: var(--space-sm);
+}
+
+.logout-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.logout-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.reset-btn {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.reset-btn:hover {
+  background: rgba(231, 111, 81, 0.1);
+  transform: translateY(-2px);
+}
+
+.info-item {
+  padding: var(--space-xs) 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.info-item strong {
+  color: var(--text-primary);
+}
+
+.settings-section a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.settings-section a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .settings-content {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .settings-container {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .settings-form {
+    padding: var(--space-lg);
+  }
+}
+
+/* ----- Reduced Motion ----- */
+@media (prefers-reduced-motion: reduce) {
+  .settings-message,
+  .save-btn,
+  .logout-btn,
+  .reset-btn {
+    animation: none;
+    transition: none;
+  }
+}

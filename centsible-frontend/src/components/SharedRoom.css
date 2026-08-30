@@ -1,0 +1,549 @@
+/* ============================================= */
+/* SHARED ROOM STYLES – UNIFIED GLASS THEME      */
+/* ============================================= */
+
+/* ----- Legacy SharedRoom Component (kept for compatibility) ----- */
+.shared-room {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.room-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.room-header h2 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 28px;
+}
+
+.room-header p {
+  color: var(--text-secondary);
+  margin-top: 5px;
+}
+
+/* ----- Container & Onboarding Screen (SharedRoomContainer) ----- */
+.shared-room-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+  background: transparent;
+}
+
+.room-onboarding {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: var(--space-lg);
+  background: var(--surface-solid);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+.room-onboarding h2 {
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.room-onboarding p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.user-name-section {
+  margin-bottom: var(--space-lg);
+}
+
+.user-name-section label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.user-name-section input {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.user-name-section input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2);
+}
+
+.create-room-card,
+.join-room-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-md);
+  border: 1px solid var(--border-light);
+}
+
+.create-room-card h3,
+.join-room-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.create-room-card input,
+.join-room-card input,
+.create-room-card select {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 15px;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.create-room-card input:focus,
+.join-room-card input:focus,
+.create-room-card select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.create-room-card button,
+.join-room-card button {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.create-room-card button:hover,
+.join-room-card button:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.create-room-card button:disabled,
+.join-room-card button:disabled {
+  background: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.divider {
+  text-align: center;
+  margin: var(--space-md) 0;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.back-to-dashboard {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: var(--space-md);
+  transition: var(--transition);
+}
+
+.back-to-dashboard:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+/* ----- Active Room Header Bar ----- */
+.shared-room-container.active {
+  padding: 0;
+}
+
+.room-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md);
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-bottom: 0;
+}
+
+.room-title h2 {
+  margin: 0 0 5px 0;
+  color: var(--text-primary);
+}
+
+.room-code-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-hover);
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.room-code-badge strong {
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.copy-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.copy-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.leave-room-btn {
+  background: transparent;
+  border: 1px solid var(--warning);
+  color: var(--warning);
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.leave-room-btn:hover {
+  background: rgba(244, 162, 97, 0.15);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* ----- Tab Navigation ----- */
+.room-tabs {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0;
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  padding: 0 var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+  border-left: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+.room-tabs button {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  transition: var(--transition);
+  position: relative;
+}
+
+.room-tabs button:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.room-tabs button.active {
+  color: var(--accent);
+  background: var(--surface-solid);
+  border-bottom: 3px solid var(--accent);
+}
+
+/* ----- Tab Content Area ----- */
+.room-tab-content {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-top: none;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: var(--space-lg);
+  min-height: 500px;
+}
+
+/* ----- Action Buttons ----- */
+.action-buttons-group {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.action-button.add-expense {
+  background: rgba(231, 111, 81, 0.15);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.action-button.add-expense:hover {
+  background: var(--danger);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.action-button.add-income {
+  background: rgba(42, 157, 143, 0.15);
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.action-button.add-income:hover {
+  background: var(--success);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.action-button.view-reports {
+  background: rgba(233, 196, 106, 0.15);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.action-button.view-reports:hover {
+  background: var(--accent);
+  color: var(--surface-solid);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ----- Transaction Form Panel ----- */
+.expense-form-panel {
+  background: var(--surface-solid);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: 20px 0;
+  border: 1px solid var(--border-light);
+}
+
+.expense-form-panel h4 {
+  margin-top: 0;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+.form-row {
+  margin-bottom: var(--space-md);
+}
+
+.form-row.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.form-row input:focus,
+.form-row select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2);
+}
+
+.split-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.split-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.split-checkbox input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  accent-color: var(--primary);
+}
+
+.helper-text {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: var(--space-md);
+}
+
+.save-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.save-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cancel-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+/* ----- Utility Classes ----- */
+.hint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 5px;
+}
+
+.empty-message {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .room-onboarding {
+    margin: 20px;
+    padding: var(--space-md);
+  }
+
+  .room-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .room-tabs {
+    flex-wrap: wrap;
+    padding: 0 var(--space-sm);
+  }
+
+  .room-tabs button {
+    flex: 1 0 auto;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .room-tab-content {
+    padding: var(--space-md);
+  }
+
+  .action-buttons-group {
+    flex-direction: column;
+  }
+
+  .form-row.two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================= */
+/* END OF FILE                                   */
+/* ============================================= */

@@ -1,0 +1,143 @@
+/* ===== ONBOARDING SUMMARY ===== */
+.onboarding-summary {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+}
+
+/* Summary card – glass effect with backdrop blur */
+.summary-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  color: var(--text-primary);
+}
+
+/* Title styling */
+.onboarding-summary h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.onboarding-summary h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Summary details list */
+.summary-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-details li {
+  padding: var(--space-md) var(--space-sm);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-secondary);
+}
+
+.summary-details li:last-child {
+  border-bottom: none;
+}
+
+/* Highlight important values (income, budget totals) */
+.summary-details li strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.summary-details .value {
+  font-weight: 600;
+  color: var(--accent); /* gold for numbers */
+}
+
+/* Action buttons row */
+.summary-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Base button styles – can use global .btn if preferred,
+   but defined locally for self‑contained component */
+.summary-actions button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  min-width: 140px;
+}
+
+/* Edit button – secondary outline style */
+.edit-btn {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.edit-btn:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Add More button – primary coral */
+.addmore-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.addmore-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Continue button – success teal */
+.continue-btn {
+  background: var(--success);
+  color: white;
+}
+
+.continue-btn:hover {
+  filter: brightness(110%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .onboarding-summary {
+    padding: var(--space-md);
+  }
+  
+  .summary-card {
+    padding: var(--space-lg);
+  }
+  
+  .summary-actions {
+    flex-direction: column;
+  }
+  
+  .summary-actions button {
+    width: 100%;
+  }
+}

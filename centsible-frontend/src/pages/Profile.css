@@ -1,0 +1,447 @@
+/* centsible-frontend/src/pages/Profile.css */
+
+.profile-page {
+  min-height: 100vh;
+  padding: 40px 20px;
+  /* Background gradient is now on body (index.css) */
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--surface-solid);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Section */
+.profile-header {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background: var(--surface);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+}
+
+.avatar-initials {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}
+
+.profile-header h1 {
+  margin: 0 0 10px;
+  font-size: 28px;
+}
+
+.profile-email {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+/* Message Toast */
+.profile-message {
+  margin: 20px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-message-success {
+  background: var(--success);
+  color: white;
+}
+
+.profile-message-error {
+  background: var(--danger);
+  color: white;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-light);
+  background: var(--surface-solid);
+  padding: 0 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 15px 20px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: var(--primary-light);
+}
+
+.tab-btn.active {
+  color: var(--primary);
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* Forms */
+.profile-form {
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  background: var(--surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2); /* primary with opacity */
+}
+
+.disabled-input {
+  background: var(--surface-hover);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Theme Selector */
+.theme-selector {
+  display: flex;
+  gap: 15px;
+}
+
+.theme-option {
+  flex: 1;
+  padding: 12px;
+  background: var(--surface);
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.theme-option:hover {
+  border-color: var(--primary);
+}
+
+.theme-option.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Save Button */
+.save-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(244, 162, 97, 0.3);
+}
+
+.save-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Danger Zone */
+.profile-danger-zone {
+  margin: 20px 30px 30px;
+  padding: 20px;
+  background: rgba(231, 111, 81, 0.1); /* danger with opacity */
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(231, 111, 81, 0.3);
+}
+
+.profile-danger-zone h3 {
+  color: var(--danger);
+  margin: 0 0 15px;
+  font-size: 18px;
+}
+
+.danger-actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.logout-btn,
+.delete-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.logout-btn {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.logout-btn:hover {
+  background: var(--surface-hover);
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #c85e43; /* slightly darker danger */
+  transform: scale(0.98);
+}
+
+.profile-danger-zone small {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+/* Stats Section */
+.profile-stats {
+  padding: 30px;
+  background: var(--surface);
+  border-top: 2px solid var(--border-light);
+}
+
+.profile-stats h3 {
+  margin: 0 0 20px;
+  color: var(--text-primary);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--surface-solid);
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-container {
+    border-radius: 15px;
+  }
+  
+  .profile-header {
+    padding: 30px 20px;
+  }
+  
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .avatar-initials {
+    font-size: 36px;
+  }
+  
+  .profile-header h1 {
+    font-size: 24px;
+  }
+  
+  .profile-tabs {
+    padding: 0 15px;
+  }
+  
+  .tab-btn {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  .profile-form {
+    padding: 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .danger-actions {
+    flex-direction: column;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-danger-zone {
+    margin: 20px;
+  }
+  
+  .profile-stats {
+    padding: 20px;
+  }
+}
+
+/* Dark Mode Support (global overrides already handle most, but we fine-tune) */
+@media (prefers-color-scheme: dark) {
+  /* No additional overrides needed if index.css has dark mode variables.
+     But we keep this block for any specific adjustments. */
+  .profile-container {
+    background: var(--surface-solid);
+  }
+  
+  .form-group input,
+  .form-group select {
+    background: var(--surface);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+  }
+  
+  .profile-danger-zone {
+    background: rgba(231, 111, 81, 0.15);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .profile-container,
+  .profile-message,
+  .save-btn {
+    animation: none;
+    transition: none;
+  }
+}

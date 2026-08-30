@@ -1,0 +1,45 @@
+### Test if server is running
+GET http://localhost:5000/
+
+### Create a new room
+POST http://localhost:5000/api/rooms/create
+Content-Type: application/json
+
+{
+  "roomName": "Dubai Trip 2024",
+  "roomType": "trip",
+  "createdBy": {
+    "userId": "john123",
+    "name": "John Doe",
+    "email": "john@example.com"
+  },
+  "currency": "AED"
+}
+
+### Join the room (Replace ABC123 with the roomCode from above response)
+POST http://localhost:5000/api/rooms/join
+Content-Type: application/json
+
+{
+  "roomCode": "ABC123",
+  "userId": "jane456",
+  "userName": "Jane Smith",
+  "userEmail": "jane@example.com"
+}
+
+### Get room details (Replace ABC123 with actual room code)
+GET http://localhost:5000/api/rooms/ABC123
+
+### Add expense to room
+POST http://localhost:5000/api/rooms/ABC123/expenses
+Content-Type: application/json
+
+{
+  "description": "Dinner at restaurant",
+  "amount": 300,
+  "paidBy": "john123",
+  "splitBetween": ["john123", "jane456"]
+}
+
+### List all rooms (for debugging)
+GET http://localhost:5000/api/rooms

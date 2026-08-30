@@ -1,0 +1,426 @@
+/* TransactionForm.css - Refactored with global variables + laptop visibility fixes */
+
+.transaction-form-container {
+  background: var(--surface);
+  backdrop-filter: blur(15px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg); /* Reduced from xl for better fit */
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;          /* Prevents overflow on laptops */
+  overflow-y: auto;           /* Scroll if content exceeds 90vh */
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.transaction-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md); /* Reduced from xl */
+  position: sticky;
+  top: 0;
+  background: inherit;         /* Matches backdrop */
+  padding-bottom: var(--space-sm);
+  z-index: 1;
+}
+
+.transaction-form-header h2 {
+  font-size: 1.5rem;           /* Slightly smaller */
+  color: var(--accent);
+}
+
+.close-button {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  width: 36px;                 /* Slightly smaller */
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  flex-shrink: 0;              /* Prevents squishing */
+}
+
+.close-button:hover {
+  background: var(--surface-hover);
+  transform: rotate(90deg);
+}
+
+/* Type Toggle */
+.type-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: var(--space-md); /* Reduced from lg */
+  background: var(--surface);
+  padding: 5px;
+  border-radius: var(--radius-md);
+}
+
+.type-button {
+  flex: 1;
+  padding: 12px;                /* Reduced from 15px */
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;              /* Slightly smaller */
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.type-button.active {
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Form Styles */
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;                   /* Reduced from 20px */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;                    /* Reduced from 8px */
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px;               /* Reduced from 15px */
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(244, 162, 97, 0.2);
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Payment Methods */
+.payment-methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;                    /* Reduced from 10px */
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;               /* Reduced from 12px */
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.payment-method:hover {
+  background: var(--surface-hover);
+}
+
+.payment-method input[type="radio"] {
+  display: none;
+}
+
+.payment-method input[type="radio"]:checked + .method-label {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.method-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 12px;                   /* Reduced from 15px */
+  margin-top: 16px;            /* Reduced from 20px */
+}
+
+.submit-button {
+  flex: 1;
+  padding: 14px;               /* Reduced from 18px */
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius-md);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.submit-button:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-button {
+  flex: 1;
+  padding: 14px;               /* Reduced from 18px */
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.cancel-button:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+/* Quick Amounts */
+.quick-amounts {
+  margin-top: 20px;            /* Reduced from 30px */
+  padding-top: 20px;           /* Reduced from 25px */
+  border-top: 1px solid var(--border-light);
+}
+
+.quick-amounts p {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  color: var(--text-secondary);
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.quick-button {
+  padding: 8px 16px;           /* Reduced from 10px 20px */
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.quick-button:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+/* Auto-Categorization Toggle */
+.auto-category-toggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+.toggle-button {
+  padding: 6px 12px;           /* Reduced from 8px 15px */
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.85rem;
+}
+
+.toggle-button.active {
+  background: rgba(244, 162, 97, 0.2);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.auto-suggestion {
+  margin-left: 12px;
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: rgba(233, 196, 106, 0.1);
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(233, 196, 106, 0.2);
+}
+
+/* Confidence Display */
+.confidence-display {
+  margin: 12px 0;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.confidence-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.confidence-bar {
+  height: 5px;
+  background: var(--surface-hover);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.confidence-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.low-confidence-warning {
+  font-size: 0.75rem;
+  color: var(--danger);
+  padding: 6px;
+  background: rgba(231, 111, 81, 0.1);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--danger);
+}
+
+/* Smart Suggestions */
+.smart-suggestions {
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.smart-suggestions h4 {
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.suggestion-chip {
+  padding: 6px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.suggestion-chip:hover {
+  background: rgba(244, 162, 97, 0.2);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .transaction-form-container {
+    padding: 16px;
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .transaction-form-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .close-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .type-button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .payment-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .quick-buttons {
+    justify-content: center;
+  }
+
+  .auto-category-toggle {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .auto-suggestion {
+    margin-left: 0;
+    margin-top: 8px;
+    text-align: center;
+  }
+
+  .suggestion-chips {
+    justify-content: center;
+  }
+
+  .suggestion-chip {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Additional fix for modal overlay (if not already in your global styles) */
+.modal-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}

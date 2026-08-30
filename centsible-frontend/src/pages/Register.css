@@ -1,0 +1,175 @@
+/* ===== Register.css – Refactored for new global theme ===== */
+
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Background is now handled by body in index.css; remove local gradient */
+  padding: 20px;
+}
+
+.register-card {
+  background: var(--surface-solid);       /* Solid dark teal card */
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  animation: slideUp 0.5s ease;
+  color: var(--text-primary);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-header h1 {
+  font-size: 2.5rem;
+  color: var(--accent);                  /* Gold accent for title */
+  margin-bottom: 10px;
+}
+
+.register-header p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.error-message {
+  background: rgba(231, 111, 81, 0.15);   /* danger color with transparency */
+  color: #f8d7da;                         /* light red for readability */
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  text-align: center;
+  border-left: 4px solid var(--danger);
+}
+
+.register-form .form-group {
+  margin-bottom: 20px;
+}
+
+.register-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Inputs & selects – white background with dark text for clarity */
+.register-form input,
+.register-form select {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 2px solid var(--border-light) !important;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.register-form input:focus,
+.register-form select:focus {
+  outline: none;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2);
+}
+
+.register-form input:disabled,
+.register-form select:disabled {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: var(--text-muted) !important;
+  cursor: not-allowed;
+}
+
+/* Placeholder text */
+.register-form input::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Primary button – coral gradient */
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+.register-btn:hover:not(:disabled) {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.register-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.register-footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Fix select dropdown options (they appear in system popup) */
+.register-form select option {
+  background-color: white !important;
+  color: #1e293b !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .register-card {
+    padding: 30px 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .register-header h1 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,329 @@
+/* centsible-frontend/src/components/ToastNotifications.css */
+
+/* Toast Container */
+.toast-container {
+  position: fixed;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+/* Position variants */
+.toast-container-top-right {
+  top: 20px;
+  right: 20px;
+}
+
+.toast-container-top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.toast-container-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.toast-container-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.toast-container-top-center {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast-container-bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Toast Message */
+.toast-message {
+  min-width: 300px;
+  max-width: 450px;
+  background: var(--surface-solid);        /* Solid dark surface for readability */
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  pointer-events: auto;
+  cursor: pointer;
+  overflow: hidden;
+  transition: var(--transition);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(12px);
+}
+
+/* Toast animations */
+.toast-enter {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+.toast-exit {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+
+/* Position‑specific animation variants */
+.toast-container-top-left .toast-enter {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+.toast-container-top-left .toast-exit {
+  animation: slideOutLeft 0.3s ease-in forwards;
+}
+.toast-container-bottom-right .toast-enter {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+.toast-container-bottom-right .toast-exit {
+  animation: slideOutRight 0.3s ease-in forwards;
+}
+.toast-container-bottom-left .toast-enter {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+.toast-container-bottom-left .toast-exit {
+  animation: slideOutLeft 0.3s ease-in forwards;
+}
+.toast-container-top-center .toast-enter {
+  animation: slideInDown 0.3s ease-out forwards;
+}
+.toast-container-bottom-center .toast-enter {
+  animation: slideInUp 0.3s ease-out forwards;
+}
+
+/* Toast Content */
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  position: relative;
+}
+
+/* Icon styles */
+.toast-icon-wrapper {
+  flex-shrink: 0;
+}
+
+.toast-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+}
+
+/* Toast text */
+.toast-text {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.toast-text p {
+  margin: 0;
+}
+
+/* Close button */
+.toast-close {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  color: var(--text-muted);
+}
+
+.toast-close:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.toast-close svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Progress bar */
+.toast-progress-bar {
+  height: 3px;
+  background: var(--surface-hover);
+  overflow: hidden;
+}
+
+.toast-progress-fill {
+  height: 100%;
+  width: 100%;
+  background: currentColor;
+  transform-origin: left;
+  animation: progressShrink linear forwards;
+}
+
+/* Type‑specific styles – border and icon colors use semantic variables */
+.toast-success {
+  border-left: 4px solid var(--success);
+}
+.toast-success .toast-icon {
+  color: var(--success);
+}
+.toast-success .toast-progress-fill {
+  background: var(--success);
+}
+
+.toast-error {
+  border-left: 4px solid var(--danger);
+}
+.toast-error .toast-icon {
+  color: var(--danger);
+}
+.toast-error .toast-progress-fill {
+  background: var(--danger);
+}
+
+.toast-warning {
+  border-left: 4px solid var(--warning);
+}
+.toast-warning .toast-icon {
+  color: var(--warning);
+}
+.toast-warning .toast-progress-fill {
+  background: var(--warning);
+}
+
+.toast-info {
+  border-left: 4px solid var(--primary);   /* using primary for info messages */
+}
+.toast-info .toast-icon {
+  color: var(--primary);
+}
+.toast-info .toast-progress-fill {
+  background: var(--primary);
+}
+
+/* Animations */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes progressShrink {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .toast-container {
+    left: 16px;
+    right: 16px;
+  }
+
+  .toast-container-top-right,
+  .toast-container-top-left,
+  .toast-container-top-center {
+    top: 16px;
+  }
+
+  .toast-container-bottom-right,
+  .toast-container-bottom-left,
+  .toast-container-bottom-center {
+    bottom: 16px;
+  }
+
+  .toast-message {
+    min-width: auto;
+    width: 100%;
+    max-width: none;
+  }
+
+  .toast-content {
+    padding: 14px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .toast-enter,
+  .toast-exit,
+  .toast-message,
+  .toast-progress-fill {
+    animation: none;
+  }
+
+  .toast-message {
+    transition: none;
+  }
+}

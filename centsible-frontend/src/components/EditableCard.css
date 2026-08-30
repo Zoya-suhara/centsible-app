@@ -1,0 +1,311 @@
+/* EditableCard.css - Refactored for unified modern theme */
+
+.editable-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+}
+
+.editable-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  background: var(--surface-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Category-specific top border colors – keep semantic but use new palette */
+.editable-card.rent { border-top: 4px solid #B980F0; }
+.editable-card.groceries { border-top: 4px solid var(--success); }
+.editable-card.transportation { border-top: 4px solid #63B3ED; }
+.editable-card.utilities { border-top: 4px solid var(--warning); }
+.editable-card.entertainment { border-top: 4px solid #F687B3; }
+.editable-card.healthcare { border-top: 4px solid #FC8181; }
+.editable-card.income { border-top: 4px solid var(--accent); }
+.editable-card.savings { border-top: 4px solid var(--primary-light); }
+.editable-card.other { border-top: 4px solid var(--text-muted); }
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn, .reminder-btn {
+  padding: 6px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--surface);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  min-width: 70px;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.edit-btn:hover, .reminder-btn:hover {
+  background: var(--surface-hover);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.edit-btn {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.edit-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.reminder-btn {
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.reminder-btn:hover {
+  background: var(--warning);
+  color: white;
+}
+
+/* Amount display area */
+.amount-display {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 0;
+}
+
+.amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+/* Budget details */
+.budget-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  padding: 0 5px;
+  font-weight: 500;
+}
+
+.budget-detail span:first-child {
+  color: var(--text-muted);
+}
+
+.budget-detail span:last-child {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.remaining {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 5px;
+  padding: 8px 0;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.remaining.positive {
+  color: var(--success);
+}
+
+.remaining.negative {
+  color: var(--danger);
+}
+
+/* Due date & next income */
+.due-date, .next-income {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-light);
+}
+
+/* Edit mode */
+.edit-mode {
+  padding: 10px 0 0 0;
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.edit-label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.amount-input, .date-input {
+  padding: 10px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.2);
+  color: var(--text-primary);
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+
+.amount-input:focus,
+.date-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.2);
+}
+
+.amount-input::placeholder,
+.date-input::placeholder {
+  color: var(--text-muted);
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-btn, .cancel-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.save-btn {
+  background: var(--success);
+  color: white;
+}
+
+.save-btn:hover {
+  background: #21867A; /* slightly darker teal */
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-btn {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.cancel-btn:hover {
+  background: var(--surface-hover);
+}
+
+/* Card footer */
+.card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+
+.status-indicator {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Progress bar */
+.expense-progress {
+  margin-top: 12px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--success);
+  transition: width 0.5s ease;
+}
+
+.progress-fill.warning { background: var(--warning); }
+.progress-fill.danger { background: var(--danger); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .editable-card {
+    padding: var(--space-md);
+    min-height: 150px;
+  }
+  
+  .amount {
+    font-size: 1.8rem;
+  }
+  
+  .remaining {
+    font-size: 1.4rem;
+  }
+  
+  .budget-detail {
+    font-size: 0.85rem;
+  }
+}

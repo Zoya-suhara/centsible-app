@@ -1,0 +1,746 @@
+/* ========== BudgetLedger.css ========== */
+/* Refactored to use global CSS variables */
+
+.budget-ledger {
+  padding: var(--space-lg);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Header – now a glass card instead of purple gradient */
+.ledger-header {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.ledger-header h1 {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: 28px;
+  color: var(--text-primary);
+}
+
+.ledger-subtitle {
+  margin: 0 0 var(--space-lg) 0;
+  opacity: 0.9;
+  color: var(--text-secondary);
+}
+
+.ledger-controls {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.period-selector {
+  display: flex;
+  gap: 5px;
+  background: var(--surface-hover);
+  padding: 5px;
+  border-radius: var(--radius-sm);
+}
+
+.period-selector button {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.period-selector button.active {
+  background: var(--primary);
+  color: white;
+}
+
+.date-picker {
+  padding: 8px 15px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.export-buttons {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.export-pdf-btn,
+.preview-btn,
+.help-toggle {
+  padding: 8px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.export-pdf-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.preview-btn {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.help-toggle {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.export-pdf-btn:disabled,
+.preview-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.export-error {
+  margin-top: var(--space-sm);
+  padding: var(--space-sm);
+  background: rgba(231, 111, 81, 0.2);
+  color: var(--danger);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  border: 1px solid var(--danger);
+}
+
+.date-range-badge {
+  background: var(--surface-hover);
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: var(--space-lg);
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  border: 1px solid var(--border-light);
+}
+
+/* Stats Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.stat-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card h3 {
+  margin: 0 0 var(--space-sm) 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: var(--space-sm) 0;
+}
+
+.stat-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.explanation {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: var(--space-sm) 0 0 0;
+  padding: var(--space-sm);
+  background: var(--surface-hover);
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+}
+
+.stat-card.positive .stat-value {
+  color: var(--success-light);
+}
+
+.stat-card.negative .stat-value {
+  color: var(--danger-light);
+}
+
+.warning {
+  background: rgba(244, 162, 97, 0.2);
+  color: var(--warning);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-sm);
+  font-size: 13px;
+  border: 1px solid var(--warning);
+}
+
+.progress-bar {
+  background: var(--surface-hover);
+  height: 8px;
+  border-radius: 4px;
+  margin-top: var(--space-sm);
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: var(--success);
+  height: 100%;
+  transition: width 0.5s;
+}
+
+/* Expense Breakdown Table */
+.expense-breakdown {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
+
+.expense-breakdown h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+.breakdown-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.breakdown-table th {
+  text-align: left;
+  padding: 12px;
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.breakdown-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.breakdown-table .amount {
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.advice-cell {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  background: var(--surface-hover);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+}
+
+/* Advice Section */
+
+
+
+
+.advice-section {
+  background: var(--surface-hover);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+  border: 1px solid var(--border-light);
+}
+
+.advice-section h2 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.advice-content p {
+  padding: var(--space-sm);
+  margin: var(--space-sm) 0;
+  background: #95dfecbb;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+/* PDF Preview Modal */
+.pdf-preview-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+.pdf-preview-content {
+  background: var(--surface-solid);
+  border-radius: var(--radius-md);
+  width: 90%;
+  max-width: 800px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.3s;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
+}
+
+.pdf-preview-header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface-solid);
+}
+
+.pdf-preview-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  color: var(--danger);
+}
+
+.pdf-preview-body {
+  flex: 1;
+  overflow: auto;
+  padding: var(--space-lg);
+  background: var(--surface-hover);
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white; /* keep iframe background white for PDF */
+}
+
+.pdf-preview-footer {
+  padding: var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+  background: var(--surface-solid);
+}
+
+.cancel-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--border-light);
+  background: var(--surface);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-primary);
+}
+
+.cancel-btn:hover {
+  background: var(--surface-hover);
+}
+
+.download-btn {
+  padding: 10px 20px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.download-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Beginner's Guide */
+.beginners-guide {
+  background: var(--surface-hover);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.beginners-guide h3 {
+  margin-top: 0;
+  color: var(--text-primary);
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.guide-item {
+  background: var(--surface);
+  padding: var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.guide-item strong {
+  color: var(--primary);
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.guide-item p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Transaction History Table */
+.transaction-history {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
+
+.transaction-history h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+.transaction-table-wrapper {
+  overflow-x: auto;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th {
+  text-align: left;
+  padding: 12px;
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.transaction-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+/* Row backgrounds for income/expense */
+.transaction-table .income-row {
+  background-color: rgba(42, 157, 143, 0.15); /* success tint */
+}
+
+.transaction-table .expense-row {
+  background-color: rgba(231, 111, 81, 0.15); /* danger tint */
+}
+
+.transaction-table .income-amount {
+  color: var(--success-light);
+  font-weight: bold;
+}
+
+.transaction-table .expense-amount {
+  color: var(--danger-light);
+  font-weight: bold;
+}
+
+.transaction-table tbody tr:hover {
+  background-color: var(--surface-hover) !important;
+}
+
+/* Clear All Button */
+.clear-all-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-left: var(--space-sm);
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.clear-all-btn:hover:not(:disabled) {
+  filter: brightness(110%);
+}
+
+.clear-all-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Action Buttons (Edit/Delete) */
+.transaction-actions {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.transaction-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  color: var(--text-secondary);
+}
+
+.transaction-actions .edit-btn:hover {
+  background: rgba(244, 162, 97, 0.2);
+  color: var(--primary);
+}
+
+.transaction-actions .delete-btn:hover {
+  background: rgba(231, 111, 81, 0.2);
+  color: var(--danger);
+}
+
+/* Edit Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.edit-modal {
+  background: var(--surface-solid);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  min-width: 350px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.edit-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  color: var(--text-primary);
+}
+
+.edit-modal-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.close-modal-btn:hover {
+  color: var(--danger);
+}
+
+.edit-form .form-group {
+  margin-bottom: var(--space-md);
+}
+
+.edit-form label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.edit-form input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--surface);
+}
+
+.edit-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(244, 162, 97, 0.3);
+}
+
+.edit-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.save-edit-btn,
+.cancel-edit-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.save-edit-btn {
+  background: var(--success);
+  color: white;
+}
+
+.save-edit-btn:hover {
+  filter: brightness(110%);
+}
+
+.cancel-edit-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.cancel-edit-btn:hover {
+  filter: brightness(110%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .budget-ledger {
+    padding: var(--space-sm);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ledger-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .export-buttons {
+    flex-direction: column;
+  }
+
+  .breakdown-table,
+  .transaction-table {
+    font-size: 12px;
+  }
+
+  .breakdown-table th,
+  .breakdown-table td,
+  .transaction-table th,
+  .transaction-table td {
+    padding: 8px;
+  }
+
+  .pdf-preview-content {
+    width: 95%;
+    height: 95%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-card,
+  .export-pdf-btn,
+  .preview-btn,
+  .download-btn,
+  .transaction-actions button {
+    transition: none;
+  }
+
+  .stat-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,209 @@
+/* ===== OnboardingRouter.css ===== */
+/* Refactored for the Centsible global theme */
+
+.onboarding-choice {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.onboarding-choice h2 {
+  color: var(--text-primary);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.choice-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.choice-card {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 30px 20px;
+  width: 250px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  color: var(--text-primary);
+}
+
+.choice-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  background: var(--surface-hover);
+  border-color: var(--primary-light);
+}
+
+.choice-card .icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.choice-card h3 {
+  margin: 10px 0;
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.choice-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 10px 0;
+}
+
+.choice-card .badge {
+  background: var(--primary);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Onboarding Summary */
+.onboarding-summary {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: var(--surface-solid); /* Solid background for better readability */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.onboarding-summary h2 {
+  color: var(--text-primary);
+  margin-bottom: 15px;
+}
+
+.onboarding-summary p {
+  color: var(--text-secondary);
+}
+
+.summary-details {
+  background: var(--surface);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.summary-details h3 {
+  color: var(--accent); /* Gold accent for headings */
+  margin-bottom: 15px;
+}
+
+.summary-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-details li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+}
+
+.summary-details li:last-child {
+  border-bottom: none;
+}
+
+.summary-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.summary-actions button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.edit-btn {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.edit-btn:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.addmore-btn {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.addmore-btn:hover {
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+}
+
+.continue-btn {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(244, 162, 97, 0.3);
+}
+
+.continue-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(244, 162, 97, 0.4);
+}
+
+.continue-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .onboarding-choice {
+    padding: 10px;
+  }
+
+  .choice-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .onboarding-summary {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .summary-actions button {
+    width: 100%;
+  }
+}

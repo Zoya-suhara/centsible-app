@@ -1,0 +1,416 @@
+/* ===== ROOM SETTINGS ===== */
+/* Refactored to use global CSS variables from index.css */
+
+.room-settings {
+  padding: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ----- Tabs Navigation ----- */
+.settings-tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: var(--space-sm);
+}
+
+.settings-tabs button {
+  background: none;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.settings-tabs button:hover {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.settings-tabs button.active {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+  font-weight: 600;
+}
+
+/* ----- Members Tab ----- */
+.invite-section {
+  background: var(--surface);
+  backdrop-filter: blur(8px);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-xl);
+  border: 1px solid var(--border-light);
+}
+
+.invite-actions {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  flex-wrap: wrap;
+  margin: var(--space-md) 0;
+}
+
+.invite-code {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--surface-solid);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+}
+
+.invite-code strong {
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+}
+
+.invite-link-btn,
+.copy-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.invite-link-btn:hover,
+.copy-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-1px);
+}
+
+.members-table {
+  overflow-x: auto;
+}
+
+.members-table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text-primary);
+}
+
+.members-table th {
+  text-align: left;
+  padding: var(--space-md);
+  background: var(--surface);
+  font-weight: 600;
+  color: var(--text-secondary);
+  border-bottom: 2px solid var(--border-light);
+}
+
+.members-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.role-badge {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.role-badge.owner {
+  background: var(--accent);
+  color: #1A2F4C; /* Dark text on gold for contrast */
+}
+
+.role-badge.admin {
+  background: var(--primary);
+  color: white;
+}
+
+.role-badge.member {
+  background: var(--surface-hover);
+  color: var(--text-secondary);
+}
+
+.you-badge {
+  font-size: 0.75rem;
+  color: var(--primary-light);
+  margin-left: var(--space-xs);
+  font-weight: 500;
+}
+
+.positive {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.negative {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.action-btn-small {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  padding: var(--space-xs) var(--space-sm);
+  margin: 0 var(--space-xs);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.action-btn-small:hover {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.action-btn-small.danger {
+  color: var(--danger);
+  border-color: rgba(231, 111, 81, 0.3);
+}
+
+.action-btn-small.danger:hover {
+  background: rgba(231, 111, 81, 0.1);
+  border-color: var(--danger);
+}
+
+/* ----- Budgets Tab ----- */
+.budgets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.budgets-header h3 {
+  color: var(--text-primary);
+}
+
+.budget-edit-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.budget-edit-row label {
+  width: 150px;
+  text-transform: capitalize;
+  color: var(--text-secondary);
+}
+
+.budget-edit-row input {
+  width: 120px;
+  padding: var(--space-sm);
+  background: var(--surface-solid);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.budget-edit-row input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.budget-edit-actions {
+  margin-top: var(--space-lg);
+  display: flex;
+  gap: var(--space-md);
+}
+
+.budget-edit-actions button {
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.budget-edit-actions button:first-child {
+  background: var(--primary);
+  color: white;
+}
+
+.budget-edit-actions button:first-child:hover {
+  background: var(--primary-light);
+}
+
+.budget-edit-actions button:last-child {
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.budget-edit-actions button:last-child:hover {
+  background: var(--surface-hover);
+}
+
+.budgets-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.budgets-table th {
+  text-align: left;
+  padding: var(--space-md);
+  background: var(--surface);
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.budgets-table td {
+  padding: var(--space-md);
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+/* ----- Room Settings Tab ----- */
+.room-edit-form {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: var(--space-sm);
+  background: var(--surface-solid);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.checkbox-group {
+  margin: var(--space-lg) 0;
+}
+
+.checkbox-group label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
+}
+
+.save-settings-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-xl);
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: var(--space-sm);
+}
+
+.save-settings-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ----- Danger Zone ----- */
+.danger-zone {
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  border: 1px solid rgba(231, 111, 81, 0.3);
+  border-radius: var(--radius-md);
+  background: rgba(231, 111, 81, 0.05);
+  backdrop-filter: blur(4px);
+}
+
+.danger-zone h3 {
+  color: var(--danger);
+  margin-top: 0;
+}
+
+.danger-actions {
+  display: flex;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.leave-room-btn {
+  background: var(--warning);
+  color: #1A2F4C;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.leave-room-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.delete-room-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.delete-room-btn:hover {
+  filter: brightness(110%);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.warning-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: var(--space-md);
+}
+
+.info-message {
+  padding: var(--space-lg);
+  background: rgba(42, 157, 143, 0.15);
+  border: 1px solid rgba(42, 157, 143, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--success);
+  backdrop-filter: blur(4px);
+}
+
+.loading {
+  text-align: center;
+  padding: var(--space-xl);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
